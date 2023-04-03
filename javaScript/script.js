@@ -1,18 +1,12 @@
-setURL('https://gruppe-303.developerakademie.net/smallest_backend_ever');
+setURL('https://yannik-morjan.developerakademie.net/smallest_backend_ever');
 
 let guest = [];
-
 let defaultContacts = [
     {name: 'Max Mustermann', email: 'max@mustermann.com', phone: '01234567989', color: '#FF7A00', initials: 'MM', id: '0'},
     {name: 'Hosny Fahim', email: 'hosny@test.com', phone: '01234567989', color: '#9327FF', initials: 'HF', id: '1'},
     {name: 'Gerhard Baliet', email: 'gerhard@test.com', phone: '01234567989', color: '#29ABE2', initials: 'GB', id: '2'},
     {name: 'Yannik Morjan', email: 'yannik@test.com', phone: '01234567989', color: '#FC71FF', initials: 'YM', id: '3'},
 ];
-
-
-
-//**signUp Functions **//
-
 
 /**
  * It takes the values from the input fields, adds them to the users array, then saves the users array
@@ -32,7 +26,6 @@ async function addUser() {
     }
 }
 
-
 /**
  * If the URL contains a query string parameter named "msg", then call the function initMsgBox() and
  * pass it the value of the "msg" parameter.
@@ -40,12 +33,8 @@ async function addUser() {
 function checkRegistrationStatus() {
     const urlParams = new URLSearchParams(window.location.search);
     const msg = urlParams.get('msg');
-    if (msg) {
-        initMsgBox(msg);
-    }
-
+    if(msg) initMsgBox(msg);
 }
-
 
 /**
  * It removes the class 'd-none' from the element with the id 'msg-box' and adds the class 'growIn' to
@@ -60,16 +49,13 @@ function showSuccessfulMsg() {
     }, 200);
 }
 
-
 /**
  * If the sessionUser key is not found in sessionStorage, redirect to the index.html page
  */
 function checkLoginStatus() {
-    if (sessionStorage.getItem('sessionUser') == null) {
+    if (sessionStorage.getItem('sessionUser') == null)
         window.location.href = 'index.html';
-    }
 }
-
 
 /**
  * If the user is a guest, change the profile-init element to 'Guest' and change the background color
@@ -77,10 +63,7 @@ function checkLoginStatus() {
  */
 function getProfileInit() {
     if (getSessionUser() == 'Guest') {
-        document.getElementById('profile-init').innerHTML = 'Guest';
-        document.getElementById('openLogOutContainer').style.fontSize = '16px';
-        document.getElementById('openLogOutContainer').style.backgroundColor = '#2A3647';
-        document.getElementById('openLogOutContainer').style.borderColor = '#2A3647';
+        guestProfileInit();
     } else {
         let fullname = sessionStorage.getItem('sessionUser').split(" ");
         let initials;
@@ -94,6 +77,12 @@ function getProfileInit() {
     }
 }
 
+function guestProfileInit() {
+    document.getElementById('profile-init').innerHTML = 'Guest';
+    document.getElementById('openLogOutContainer').style.fontSize = '16px';
+    document.getElementById('openLogOutContainer').style.backgroundColor = '#2A3647';
+    document.getElementById('openLogOutContainer').style.borderColor = '#2A3647';
+}
 
 /**
  * It removes the class 'd-none' from the element with the id 'logOutContainer' and adds the class
@@ -123,8 +112,6 @@ function closeLogOutContainer() {
     document.getElementById('openLogOutContainer').setAttribute('onclick', `openLogOutContainer()`);
 }
 
-// Message Box
-
 /**
  * The function takes a string as an argument and sets the innerHTML of the msgBox element to the
  * string.
@@ -153,8 +140,6 @@ function initMsgBoxAlert(msg) {
     openMsgBoxAlert();
 }
 
-
-
 /**
  * It removes the class 'animationFadeOut' from the element with the id 'msgBox'. It adds the class
  * 'animationFadeIn' to the element with the id 'msgBox'. It removes the class 'd-none' from the
@@ -179,8 +164,6 @@ function openMsgBoxAlert() {
     setTimeout(closeMsgBoxAlert, 2000);
 }
 
-
-
 /**
  * It removes the class 'animationFadeIn' from the element with the id 'msgBox' and adds the class
  * 'animationFadeOut' to the same element.
@@ -199,8 +182,6 @@ function closeMsgBoxAlert() {
     document.getElementById('msgBoxAlert').classList.add('animationFadeOut');
 }
 
-
-
 /**
  * Download the users from the server, and if the download fails, use the users that are already stored
  * in the browser.
@@ -209,7 +190,6 @@ async function init() {
     await downloadFromServer();
     users = JSON.parse(await backend.getItem('users')) || [];
 }
-
 
 /**
  * It gets the user from the session storage, parses it, and returns it.
@@ -221,16 +201,12 @@ function getSessionUser() {
     return user;
 }
 
-
 /**
  * It removes the sessionUser from the sessionStorage.
  */
 function deleteSessionUser() {
     sessionStorage.removeItem('sessionUser');
 }
-
-//**Include Function */
-
 
 /**
  * For each element with the attribute w3-include-html, fetch the file specified by the attribute, and
@@ -251,7 +227,6 @@ async function includeHTML() {
         }
     }
 }
-
 
 /**
  * If the name contains a space, return the first letter of the first name and the first letter of the
