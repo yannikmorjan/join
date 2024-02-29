@@ -25,15 +25,15 @@ function addBgrToNav(el1, el2) {
  */
 function checkCurrentPage() {
     const pathname = window.location.pathname;
-    if(pathname == '/join/contacts.html') {
+    if(pathname == '/contacts.html') {
         addBgrToNav('hover-active4', 'hover-active8');
-    }else if(pathname == '/join/addTask.html') {
+    }else if(pathname == '/addTask.html') {
         addBgrToNav('hover-active3', 'hover-active7');
-    }else if(pathname == '/join/board.html') {
+    }else if(pathname == '/board.html') {
         addBgrToNav('hover-active2', 'hover-active6');
-    }else if(pathname == '/join/summary.html') {
+    }else if(pathname == '/summary.html') {
         addBgrToNav('hover-active1', 'hover-active5');
-    }else if(pathname == '/join/legal.html') {
+    }else if(pathname == '/legal.html') {
         addBgrToNav('hover-active9');
     }
 }

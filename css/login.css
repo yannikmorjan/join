@@ -232,9 +232,9 @@ body {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding: 4px 0px;
+    padding: 4px 16px;
     gap: 10px;
-    width: 145px;
+    width: 161px;
     height: 51px;
     background: #2A3647;
     border-radius: 8px;
@@ -258,7 +258,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 38px;
+    margin-top: -44px;
     margin-left: 185px;
 
 }
@@ -374,8 +374,8 @@ body {
     }
 
     .guest-container {
-        margin-top: 34px;
-        margin-left: -1px;
+        margin-top: 0px;
+        margin-left: 0px;
     }
 
     .login-btn {

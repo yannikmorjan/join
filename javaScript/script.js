@@ -1,4 +1,4 @@
-setURL('https://yannik-morjan.developerakademie.net/smallest_backend_ever');
+setURL('https://join.yannikmorjan.de/smallest_backend_ever');
 
 let guest = [];
 let defaultContacts = [
